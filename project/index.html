@@ -1,0 +1,202 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test task</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="libs/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+</head> 
+<body> 
+    <header>
+        <div class="container">
+            <div class="left-col">
+                <div class="logo">
+                    <a href="#"><img src="dist/img/logo.png" alt="JuliaDates"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Поиск</a></li>
+                        <li><a href="#">Мои переписки</a></li>
+                        <li><a href="#">Избранное</a></li>
+                        <li><a href="#">Кто смотрел</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right-col">
+                <div class="status">Премиум<i class="fas fa-info"></i></div>
+                <div class="balance">100 кредитов</div>
+                <div class="user">
+                    <img src="dist/img/avatar.png" alt="avatar">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="top-girls">
+            <div class="container">
+                <div class="top-girls__item"><img src="dist/img/top_girl_1.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_2.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_3.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_4.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_5.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_6.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_7.png"></div>
+                <div class="top-girls__item"><img src="dist/img/top_girl_8.png"></div>
+            </div>
+        </section>
+        <section class="searchbar">
+            <div class="container">
+                <p class="searchbar__title">Я ищу</p>
+                <div class="searchbar__filters">
+                    <div class="searchbar__filter searchbar__filter-gender">
+                        <select id="gender">
+                            <option value="hide">Выберите пол</option>
+                            <option value="girl">Девушку</option>
+                            <option value="boy">Парня</option>
+                            <option value="friends">Друзей</option>
+                        </select>
+                    </div>
+                    <div class="searchbar__filter searchbar__filter-city">
+                        <select id="city">
+                            <option value="hide">Выберите город</option>
+                            <option value="moskow">Москва</option>
+                            <option value="piter">Питер</option>
+                            <option value="sankt-peterburg">Санкт-Петербург</option>
+                        </select>
+                    </div>
+                    <div class="searchbar__filter searchbar__filter-age">
+                        <label for="amount">Возраст:</label>
+                        <div id="slider-range"></div>
+                    </div>
+                    <div class="searchbar__btn">Найти</div>
+                </div>
+            </div>
+        </section>
+        <section class="searchbar-advanced">
+            <div class="searchbar-advanced__head">
+                <span>Расширенный поиск<i class="fas fa-angle-down"></i></span>
+            </div>
+            <div class="searchbar-advanced__body">
+                <div class="container">
+                    <div class="view-filters">
+                        <div class="view-filters__item">Онлайн</div>
+                        <div class="view-filters__item active">Новые</div>
+                        <div class="view-filters__item">Популярные</div>
+                    </div>
+                    <div class="girls-cards">
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>12</div>
+                            <div class="cards-item__img-label">Топ</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card1.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>
+                                <div class="cards-item__title">Кристиночка, 28<span class="status-online"></span></div>
+                                <div class="cards-item__city">Санкт-Петербург, Россия</div>
+                            </div>
+                        </div>
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>3</div>
+                            <div class="cards-item__img-label">Топ</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card2.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>
+                                <div class="cards-item__title">Диана, 20<span class="status-online"></span></div>
+                                <div class="cards-item__city">Самара, Россия</div>
+                            </div>
+                        </div>
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>145</div>
+                            <div class="cards-item__img-label">Топ</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card3.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>
+                                <div class="cards-item__title">Аня, 18<span class="status-online"></span></div>
+                                <div class="cards-item__city">Ростов-на-Дону, Россия</div>
+                            </div>
+                        </div>
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>145</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card4.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>
+                                <div class="cards-item__title">Анжелика, 27</div>
+                                <div class="cards-item__city">Чебоксары, Россия</div>
+                            </div>
+                        </div>
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>145</div>
+                            <div class="cards-item__img-label">Топ</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card3.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>    
+                                <div class="cards-item__title">Аня, 18<span class="status-online"></span></div>
+                                <div class="cards-item__city">Ростов-на-Дону, Россия</div>
+                            </div>
+                        </div>
+                        <div class="girls-cards__item">
+                            <div class="cards-item__img-counter"><i class="fas fa-camera"></i>12</div>
+                            <div class="cards-item__img-label">Топ</div>
+                            <div class="cards-item__avatar"><img src="dist/img/card1.png"></div>
+                            <div class="cards-item__signature">
+                                <div class="cards-item__btns">
+                                    <span class="cards-item__btn cards-item__btn-selected"><i class="far fa-star"></i>Избранное</span>
+                                    <span class="cards-item__btn cards-item__btn-write"><i class="far fa-envelope"></i>Написать</span>
+                                </div>
+                                <div class="cards-item__title">Кристиночка, 28<span class="status-online"></span></div>
+                                <div class="cards-item__city">Санкт-Петербург, Россия</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <script src="src/js/select.js"></script>
+        
+    <!--range slider -->
+    <link rel="stylesheet" href="dist/css/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#slider-range" ).slider({
+          range: true,
+          min: 18,
+          max: 50,
+          values: [ 18, 23 ],
+          slide: function( event, ui ) {
+            $(".ui-slider-handle").first().html('<span class="age-value">'+ui.values[ 0 ]+'</span>');
+            $(".ui-slider-handle").last().html('<span class="age-value">'+ui.values[ 1 ]+'</span>');
+          }
+        });
+        
+        $(".ui-slider-handle").first().html('<span class="age-value">'+$( "#slider-range" ).slider( "values", 0 )+'</span>');
+        $(".ui-slider-handle").last().html('<span class="age-value">'+$( "#slider-range" ).slider( "values", 1 )+'</span>');
+          
+      } );
+    </script>
+</body> 
+</html>

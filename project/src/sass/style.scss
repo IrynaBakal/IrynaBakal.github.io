@@ -1,0 +1,486 @@
+$fontSize: 16px;
+$grey: #333333;
+$blue: #366cf7;
+$dark-blue: #006CFC;
+$light-blue: #0093FF;
+$pink: #ff1e6c;
+$bg-color: #f0f0f0;
+$limegreen: #01f501;
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: $fontSize;
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+header{
+    padding: 1.13rem 0;
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.left-col{
+    display: flex;
+    align-items: center;
+    .logo{
+        margin-right: 1.15rem;
+    }
+    nav{
+        li{
+            display: inline-flex;
+            margin: 0 0.8rem;
+        }
+        a{
+            color: $grey;
+            font-weight: 500;
+        }
+    }
+}
+
+.right-col{
+    display: flex;
+    align-items: center;
+    .status{
+        line-height: 1;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-right: 0.9rem;
+        i{
+            position: relative;
+            top: -0.1rem;
+            text-align: center;
+            font-size: 0.5rem;
+            border: 0.1rem solid;
+            border-radius: 50%;
+            line-height: 1.375;
+            width: 0.65rem;
+            margin-left: 0.25rem;
+            color: $blue;
+            font-weight: 600;
+        }
+    }
+    .balance{
+        color: $blue;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-right: 0.9rem;
+    }
+    .user{
+        img{
+            margin-right: 0.3rem;
+        }
+        i{
+            position: relative;
+            top: -0.65rem;
+            color: $blue;
+        }
+    }
+}
+
+.top-girls{
+    background-color: $bg-color;
+    padding: 1.27rem 0;
+    .container{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1;
+        grid-column-gap: 0.6rem;
+    }
+    .top-girls__item{
+        img{
+            border-radius: 0.2rem;
+            width: 100%;
+        }
+    }
+}
+
+.searchbar{
+    .searchbar__title{
+        color: $grey;
+        font-size: 1.75rem;
+        text-align: center;
+    }
+    .searchbar__filters{
+        display: flex;
+        justify-content: space-between;
+    }
+    .searchbar__filter{
+        &.searchbar__filter-gender{
+            width: 15.4%;
+        }
+        &.searchbar__filter-city{
+            width: 24%;
+        }
+        &.searchbar__filter-age{
+            width: 22.5%;
+            display: flex;
+            align-items: center;
+            label{
+                margin-right: 0.7rem;
+            }
+            .ui-slider{
+                width: 100%;
+            }
+            .ui-state-default, .ui-widget-content .ui-state-default{
+                border-radius: 50%;
+                left: 0%;
+                width: 0.5rem;
+                height: 0.5rem;
+                top: -0.25rem;
+                background: $blue;
+                margin-left: -.1rem;
+                cursor: pointer;
+            }
+            .age-value{
+                color: $grey;
+                display: inline-block;
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin: 0.6rem 0 0 -0.15rem;
+            }
+            .ui-widget.ui-widget-content{
+                height: 1px;
+                border-radius: 0;
+                border: none;
+                background: lighten($grey, 70);
+            }
+            .ui-slider-horizontal .ui-slider-range{
+                background: $blue;
+            }
+            .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, 
+            a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+                color: inherit;
+            }
+            .ui-state-focus{
+                outline: none;
+            }
+        }
+        .select-hidden {
+            display: none;
+            visibility: hidden;
+            padding-right: 10px;
+        }
+        .select {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            font-size: 16px;
+            color: $blue;
+            width: 100%;
+            height: 1.75rem;
+        }
+        .select-styled {
+            position: absolute; 
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0.35rem 0.7rem;
+            color: $grey; 
+            @include transition(all 0.2s ease-in);
+            .select__angle{
+                font-family: Font Awesome\ 5 Free;
+                font-weight: 900;
+                position: absolute;
+                right: 0;
+                &:before{
+                    content: "\f107";    
+                }
+            }
+
+            &:active, &.active {
+                .select__angle{
+                    &:before{
+                        content: '\f106';
+                    }
+                }
+            }
+        }
+        .select-options {
+            display: none; 
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            z-index: 3;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background: white;
+            li {
+                margin: 0;
+                padding: 0.35rem 0;
+                text-indent: 0.7rem;
+                color: lighten($blue, 10);
+                border-top: 1px solid lighten($grey, 25);
+                @include transition(all 0.15s ease-in);
+                &:hover {
+                    color: $blue;
+                    background: lighten($grey, 70);
+                }
+                &[rel="hide"] {
+                    display: none;
+                }
+            }
+        }
+    }
+    .searchbar__btn{
+        width: 14.5%;
+        color: white;
+        font-size: 0.8rem;
+        background: linear-gradient(to right, $dark-blue, $light-blue);
+        border-radius: 0.25rem;
+        line-height: 2.5;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            background: $dark-blue;
+        }
+    }   
+}
+
+.searchbar-advanced{
+    .searchbar-advanced__head{
+        position: relative;
+        text-align: center;
+        margin: 3rem 0 2.15rem;
+        &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+            top: 50%;
+            background: lighten($grey, 65);
+            z-index: -1;
+        }
+        span{
+            background: white;
+            padding: 0 1rem;
+            color: $grey;
+            i{
+                position: relative;
+                top: 0.1rem;
+                padding-left: 0.5rem;
+                color: $blue;
+            }
+        }
+    }
+    .searchbar-advanced__body{
+        background-color: $bg-color;
+        padding: 2.75rem 0;
+        .view-filters{
+            display: inline-block;
+            border: 1px solid $blue;
+            border-radius: 0.25rem;
+            color: $blue;
+            .view-filters__item{
+                display: inline-block;
+                padding: 0.25rem;
+                font-size: 0.9rem;
+                font-weight: 500;
+                &.active{
+                    color: white;
+                    background: $blue;
+                }
+            }
+        }
+        .girls-cards{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 25rem);
+            grid-row-gap: 2rem;
+            grid-column-gap: 1.2rem;
+            padding: 1.5rem 0;
+        }
+        .girls-cards__item{
+            position: relative;
+            .cards-item__img-counter{
+                position: absolute;
+                top: 1.2rem;
+                left: 1rem;
+                color: white;
+                padding: 0.2rem 0.4rem;
+                background: rgba(0,0,0,0.4);
+                border-radius: 0.2rem;
+                font-size: 0.8rem;
+                i{
+                    padding-right: 0.25rem;
+                    font-size: 1rem;
+                }
+            }
+            .cards-item__img-label{
+                position: absolute;
+                background: $pink;
+                color: white;
+                text-transform: uppercase;
+                padding: 0.25rem 0.4rem;
+                border-radius: 0.2rem;
+                font-size: 0.8rem;
+                top: 1.2rem;
+                right: 1rem;
+            }
+            .cards-item__signature{
+                padding: 0 1rem 1rem 1rem;
+                background: white;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+                border: 1px solid $bg-color;
+                margin: -1px;
+            }
+            .cards-item__avatar{
+                img{
+                    display: block;
+                    width: 100%;
+                    border-top-left-radius: 0.25rem;
+                    border-top-right-radius: 0.25rem;
+                }
+            }
+            .cards-item__btns{
+                margin: 0 -1rem 1rem;    
+                display: flex;
+            }
+            .cards-item__btn{
+                background: linear-gradient(to right, $dark-blue, $light-blue);
+                width: 50%;
+                box-sizing: border-box;
+                color: white;
+                padding: 0.4rem 0.5rem;
+                font-size: 0.9rem;
+                cursor: pointer;
+                i{
+                    margin-right: 0.3rem;
+                    font-size: 1rem;
+                }
+                &:first-child{
+                    border-right: 1px solid rgba(255,255,255,0.5);
+                }
+            }
+            .cards-item__title{
+                color: $blue;
+                font-size: 1.13rem;
+                font-weight: 500;
+                .status-online{
+                    width: 0.6rem;
+                    height: 0.6rem;
+                    background: $limegreen;
+                    display: inline-block;
+                    border-radius: 50%;
+                    margin: -0.15rem 0 0 0.5rem;
+                }
+            }
+            .cards-item__city{
+                color: $grey;
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1200px) {
+    body{
+        font-size: 15px;
+    }
+    .container{
+        padding: 0 1rem;
+    }
+}
+
+@media all and (max-width: 998px) {
+    body {
+        font-size: 14px;
+    }
+    header{
+        .left-col{
+            flex-wrap: wrap;
+        }
+        .logo{
+            width: 100%;
+            margin-bottom: 0.35rem;
+        }
+        nav li{
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+        .right-col{
+            width: 50%;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+    }
+    .searchbar-advanced{
+        .searchbar-advanced__body{
+            .girls-cards{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        } 
+    }
+    .searchbar{
+        .searchbar__filter{
+            .select-styled{
+                font-size: 0.9rem;
+                margin: 0 0.2rem;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .top-girls .container{
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .searchbar{
+        .searchbar__filters{
+            flex-wrap: wrap;
+        }
+        .searchbar__filter{
+            &.searchbar__filter-gender{
+                width: 33%;
+            }
+            &.searchbar__filter-city{
+                width: 40%;
+            }
+            &.searchbar__filter-age{
+                width: 33%;
+                margin-left: 0.95rem;
+            }
+        }
+        .search__btn{
+            margin-right: 0.35rem;
+        }
+    } 
+}
+
+@media all and (max-width: 576px) {
+    .top-girls .container{
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .searchbar-advanced .searchbar-advanced__body .girls-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
